@@ -1231,7 +1231,7 @@ export default function ApplyPage() {
       )
 
       if (response) {
-        console.log("[v0] Application submitted successfully:", response.data)
+        console.log("Application submitted successfully:", response.data)
         showToast("Application submitted successfully!", "success")
         setIsSubmitted(true)
         setIsSubmitting(false)
@@ -1240,7 +1240,7 @@ export default function ApplyPage() {
     } catch (error: any) {
       const errorMessage =
         error.response?.data?.message || "Something went wrong submitting your application. Please try again."
-      console.error("[v0] Error submitting application:", error)
+      console.error("Error submitting application:", error)
       showToast(errorMessage, "error")
       setIsSubmitting(false)
     }
