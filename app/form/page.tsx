@@ -171,9 +171,6 @@ export default function ApplyPage() {
     if (!formData.legalStatus) newErrors.legalStatus = "Please fill this field"
     if (!formData.referredBy.trim()) newErrors.referredBy = "Please fill this field"
 
-    if (formData.mobilePhone.trim() && (formData.mobilePhone)) {
-      newErrors.mobilePhone = "Check your number (must be 12 digits)"
-    }
     if (formData.dateOfBirth && !validateDateOfBirth(formData.dateOfBirth)) {
       newErrors.dateOfBirth = "Year must be 4 digits (YYYY-MM-DD) and a valid year."
     }
@@ -272,9 +269,7 @@ export default function ApplyPage() {
     if (!formData.reference1.phoneNumber.trim()) {
       newErrors["reference1.phoneNumber"] = "Please enter phone number"
     }
-    if (formData.reference1.phoneNumber.trim() && (formData.reference1.phoneNumber)) {
-      newErrors["reference1.phoneNumber"] = "+92 300 0000000"
-    }
+
     if (!formData.reference1.relationship.trim()) {
       newErrors["reference1.relationship"] = "Please explain relationship"
     }
@@ -285,9 +280,7 @@ export default function ApplyPage() {
     if (!formData.reference2.phoneNumber.trim()) {
       newErrors["reference2.phoneNumber"] = "Please enter phone number"
     }
-    if (formData.reference2.phoneNumber.trim() && (formData.reference2.phoneNumber)) {
-      newErrors["reference2.phoneNumber"] = "Phone must be 12 digits"
-    }
+
     if (!formData.reference2.relationship.trim()) {
       newErrors["reference2.relationship"] = "Please explain relationship"
     }
@@ -743,7 +736,7 @@ export default function ApplyPage() {
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
                       errors.mobilePhone ? "border-red-500 bg-red-50" : "border-gray-300"
                     }`}
-                    placeholder="Enter 12 digit number"
+                    placeholder="000-0000000"
                   />
                   {errors.mobilePhone && (
                     <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
@@ -1229,7 +1222,7 @@ export default function ApplyPage() {
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
                         errors["reference1.phoneNumber"] ? "border-red-500 bg-red-50" : "border-gray-300"
                       }`}
-                      placeholder="12-digit phone number"
+                      placeholder="00-0000000"
                     />
                     {errors["reference1.phoneNumber"] && (
                       <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
@@ -1311,7 +1304,7 @@ export default function ApplyPage() {
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 ${
                         errors["reference2.phoneNumber"] ? "border-red-500 bg-red-50" : "border-gray-300"
                       }`}
-                      placeholder="12-digit phone number"
+                      placeholder="00-0000000"
                     />
                     {errors["reference2.phoneNumber"] && (
                       <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
