@@ -4,7 +4,20 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Heart, LogOut } from "lucide-react"
 import { useRouter } from "next/navigation"
+<<<<<<< HEAD
 import { getAuthToken, removeAuthToken, API_BASE_URL } from "@/lib/auth-utils"
+=======
+import { getAuthToken, removeAuthToken, API_BASE_URL, authenticatedFetch } from "@/lib/auth-utils"
+
+interface Document {
+  filename: string
+  originalname: string
+  mimeType: string
+  size: number
+  path: string
+  url: string
+}
+>>>>>>> ff0056ed (Updated project)
 
 interface Case {
   _id: string
@@ -14,6 +27,10 @@ interface Case {
   amountRequested: number | null
   status: string
   createdAt: string
+<<<<<<< HEAD
+=======
+  documents?: Document[]
+>>>>>>> ff0056ed (Updated project)
 }
 
 interface ApiResponse {
@@ -29,6 +46,7 @@ export default function CasesPage() {
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
+<<<<<<< HEAD
   useEffect(() => {
     const token = getAuthToken()
     if (!token) {
@@ -57,6 +75,30 @@ export default function CasesPage() {
         setError(null)
       } catch (error) {
         console.error("Error fetching cases:", error)
+=======
+  // Redirect if no token
+  useEffect(() => {
+    const token = getAuthToken()
+    if (!token) router.push("/staff/login")
+  }, [router])
+
+  // Fetch cases
+  useEffect(() => {
+    const fetchCases = async () => {
+      try {
+        const res = await authenticatedFetch(`${API_BASE_URL}/api/zakat-applicants`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        })
+
+        if (!res.ok) throw new Error(`API error: ${res.status}`)
+
+        const result: ApiResponse = await res.json()
+        setCases(Array.isArray(result.items) ? result.items : [])
+        setError(null)
+      } catch (err) {
+        console.error("Error fetching cases:", err)
+>>>>>>> ff0056ed (Updated project)
         setError("Failed to load cases")
         setCases([])
       } finally {
@@ -105,9 +147,13 @@ export default function CasesPage() {
         </div>
 
         {loading && <div className="bg-white rounded-lg p-12 text-center text-gray-600">Loading cases...</div>}
+<<<<<<< HEAD
 
         {error && <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg mb-6">{error}</div>}
 
+=======
+        {error && <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg mb-6">{error}</div>}
+>>>>>>> ff0056ed (Updated project)
         {!loading && !error && cases.length === 0 && (
           <div className="bg-white rounded-lg p-12 text-center text-gray-600">No cases found</div>
         )}
@@ -128,7 +174,10 @@ export default function CasesPage() {
                     {caseItem.requestType} · ${caseItem.amountRequested || "N/A"}
                   </p>
                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff0056ed (Updated project)
                 <span
                   className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap ml-4 ${
                     caseItem.status === "Pending"
@@ -163,6 +212,35 @@ export default function CasesPage() {
                   </Link>
                 </div>
               </div>
+<<<<<<< HEAD
+=======
+
+              {/* Documents Section */}
+              {caseItem.documents && caseItem.documents.length > 0 && (
+                <div className="mt-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <h4 className="text-sm font-semibold text-gray-700 mb-2">Documents</h4>
+                  <div className="space-y-2">
+                    {caseItem.documents.map((doc, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between p-2 border border-gray-200 rounded hover:bg-gray-100 transition"
+                      >
+                        <div className="flex-1">
+                          <p className="text-sm text-gray-900">{doc.originalname}</p>
+                          <p className="text-xs text-gray-500">{(doc.size / 1024).toFixed(2)} KB</p>
+                        </div>
+                        <button
+                          onClick={() => window.open(doc.url, "_blank")}
+                          className="px-3 py-1 bg-teal-600 text-white rounded hover:bg-teal-700 text-xs font-medium"
+                        >
+                          View
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+>>>>>>> ff0056ed (Updated project)
             </div>
           ))}
         </div>
