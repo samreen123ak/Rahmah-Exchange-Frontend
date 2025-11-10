@@ -41,7 +41,7 @@ function removeAuthToken() {
 function isAuthenticated() {
     return !!getAuthToken();
 }
-const API_BASE_URL = ("TURBOPACK compile-time value", "http://localhost:3000") || "/api";
+const API_BASE_URL = ("TURBOPACK compile-time value", "http://localhost:3000");
 async function authenticatedFetch(url, options = {}) {
     const token = getAuthToken();
     const headers = new Headers(options.headers || {});

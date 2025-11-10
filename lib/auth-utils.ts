@@ -32,7 +32,7 @@ export function isAuthenticated(): boolean {
   return !!getAuthToken()
 }
 
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "/api"
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 export async function authenticatedFetch(url: string, options: RequestInit = {}) {
   const token = getAuthToken()

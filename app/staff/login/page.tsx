@@ -29,6 +29,7 @@ export default function StaffLoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       })
+      
 
       console.log("Login response status:", res.status)
 
