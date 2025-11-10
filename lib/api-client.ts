@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://rahmah-exchange-backend-production.up.railway.app"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL 
 
 interface ApiResponse<T> {
   status: number
