@@ -87,7 +87,7 @@ function StaffLoginPage() {
         setError("");
         setLoading(true);
         try {
-            const apiUrl = `${__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$auth$2d$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["API_BASE_URL"]}/api/auth/login`;
+            const apiUrl = `/api/auth/login`;
             console.log("Login API URL:", apiUrl);
             const res = await fetch(apiUrl, {
                 method: "POST",
