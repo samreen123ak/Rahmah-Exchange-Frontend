@@ -293,7 +293,7 @@ export default function ApplyPage() {
     const newErrors: ValidationErrors = {}
 
     if (formData.documents.length === 0) {
-      newErrors.documents = "Please upload at least one document"
+      newErrors.documents = "Please upload at least one document before continuing"
     }
 
     setErrors(newErrors)
@@ -317,14 +317,16 @@ export default function ApplyPage() {
       isValid = validateStep6()
     } else if (currentStep === 7) {
       isValid = validateStep7()
+      if (!isValid) {
+        showToast("Please upload at least one document", "error")
+        return
+      }
     }
 
     if (!isValid) return
 
-    if (currentStep < 7) {
+    if (currentStep < 8) {
       setCurrentStep(currentStep + 1)
-    } else {
-      handleSubmit()
     }
   }
 
@@ -379,6 +381,11 @@ export default function ApplyPage() {
   }
 
   const handleSubmit = async () => {
+    if (formData.documents.length === 0) {
+      showToast("Please upload at least one document", "error")
+      return
+    }
+
     setIsSubmitting(true)
     try {
       const submitData = new FormData()
@@ -414,7 +421,9 @@ export default function ApplyPage() {
       submitData.append("reference1", JSON.stringify(formData.reference1))
       submitData.append("reference2", JSON.stringify(formData.reference2))
 
+      console.log("[v0] Documents being submitted:", formData.documents.length)
       formData.documents.forEach((file, index) => {
+        console.log(`[v0] Appending document ${index + 1}:`, file.name, file.size)
         submitData.append(`documents`, file)
       })
 
@@ -423,7 +432,7 @@ export default function ApplyPage() {
       })
 
       if (response) {
-        console.log("Application submitted successfully:", response.data)
+        console.log("[v0] Application submitted successfully:", response.data)
         showToast("Application submitted successfully!", "success")
         setIsSubmitted(true)
         setIsSubmitting(false)
@@ -432,7 +441,7 @@ export default function ApplyPage() {
     } catch (error: any) {
       const errorMessage =
         error.response?.data?.message || "Something went wrong submitting your application. Please try again."
-      console.error("Error submitting application:", error)
+      console.error("[v0] Error submitting application:", error)
       showToast(errorMessage, "error")
       setIsSubmitting(false)
     }
