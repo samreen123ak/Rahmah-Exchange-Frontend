@@ -1,7 +1,12 @@
-[00:00:03.334] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:03.894] Server  LOG      ✓ Ready in 2.9s
-[00:00:07.273] Server  LOG      ○ Compiling /staff/cases/[id] ...
-[00:00:19.176] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:03.062] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.860] Server  LOG      ✓ Ready in 2.9s
+[00:00:06.991] Server  LOG      ○ Compiling /application-status ...
+[00:00:13.361] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.745] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:13.745] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:13.745] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762847996459}
+[00:00:19.327] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/login color: rgb(120, 120, 120) color: inherit {"dp":"/staff/login","o":"http://localhost:3000/staff/login","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848002040}
+[00:00:22.837] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -19,7 +24,76 @@ It can also happen if the client has a browser extension installed which messes 
         <ReplaySsrOnlyErrors>
         <DevRootHTTPAccessFallbackBoundary>
           <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/staff/cas..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <HTTPAccessFallbackErrorBoundary pathname="/applicati..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="font-sans antialiased"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:00:22.837] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:22.837] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/application-status","route":"/application-status"}
+[00:00:22.837] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/application-status color: rgb(120, 120, 120) color: inherit {"dp":"/application-status","o":"http://localhost:3000/application-status","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848005197}
+[00:00:29.928] Browser LOG     Login API URL: /api/auth/login
+[00:00:33.943] Browser LOG     Login response status: 200
+[00:00:33.943] Browser LOG     Login response data: {"message":"Login successful","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGIwMWRiNTc1MWZhYjgzYjkxOGU3MiIsImlhdCI6MTc2Mjg0ODAxNiwiZXhwIjoxNzY1NDQwMDE2fQ.fGpm6PO8julnISCe5bhQRV3y7L0grt3A-2rAtZu_roE","user":{"email":"staff@gmail.com","id":"690b01db5751fab83b918e72","name":"Admin"}}
+[00:00:34.691] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848017403}
+[00:00:43.926] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases","o":"http://localhost:3000/staff/cases","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848026643}
+[00:01:52.417] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848095130}
+[00:01:54.716] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:54.945] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:54.945] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff/dashboard","route":"/staff/dashboard"}
+[00:01:54.945] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848097663}
+[00:02:18.799] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848121499}
+[00:02:21.098] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848123809}
+[00:02:23.623] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/login color: rgb(120, 120, 120) color: inherit {"dp":"/staff/login","o":"http://localhost:3000/staff/login","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848126334}
+[00:02:34.228] Browser LOG     Login API URL: /api/auth/login
+[00:02:34.625] Browser LOG     Login response status: 200
+[00:02:34.625] Browser LOG     Login response data: {"message":"Login successful","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGIwMWRiNTc1MWZhYjgzYjkxOGU3MiIsImlhdCI6MTc2Mjg0ODEzNywiZXhwIjoxNzY1NDQwMTM3fQ.nFsr-mZLw-zzeBsj-uXNGZ3aNPn3t8fsT2zldhCsYUk","user":{"email":"staff@gmail.com","id":"690b01db5751fab83b918e72","name":"Admin"}}
+[00:02:34.625] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848137329}
+[00:02:39.857] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases","o":"http://localhost:3000/staff/cases","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848142566}
+[00:02:45.937] Browser ERROR   uncaughtError: Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
+[00:03:18.136] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:18.339] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:18.339] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff","route":"/staff"}
+[00:03:18.339] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff color: rgb(120, 120, 120) color: inherit {"dp":"/staff","o":"http://localhost:3000/staff","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848181056}
+[00:03:21.844] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:22.038] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:22.038] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:03:22.038] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848184753}
+[00:03:23.804] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848186508}
+[00:03:25.800] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases","o":"http://localhost:3000/staff/cases","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848188512}
+[00:03:28.137] Browser ERROR   uncaughtError: Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
+[00:05:34.006] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
               <RedirectBoundary>
                 <RedirectErrorBoundary router={{...}}>
                   <Head>
@@ -39,6 +113,20 @@ It can also happen if the client has a browser extension installed which messes 
                           >
                   ...
 
-[00:00:20.932] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:20.933] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff/cases/6912db1f7f840e9b3db1e556","route":"/staff/cases/[id]"}
-[00:00:20.933] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases/6912db1f7f840e9b3db1e556 color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases/[id]","o":"http://localhost:3000/staff/cases/6912db1f7f840e9b3db1e556","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762844181087}
+[00:05:34.508] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:34.508] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:05:34.508] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848317162}
+[00:05:35.849] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/login color: rgb(120, 120, 120) color: inherit {"dp":"/staff/login","o":"http://localhost:3000/staff/login","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848318561}
+[00:05:48.953] Browser LOG     Login API URL: /api/auth/login
+[00:05:49.368] Browser LOG     Login response status: 200
+[00:05:49.368] Browser LOG     Login response data: {"message":"Login successful","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGIwMWRiNTc1MWZhYjgzYjkxOGU3MiIsImlhdCI6MTc2Mjg0ODMzMSwiZXhwIjoxNzY1NDQwMzMxfQ.-3H9uGJB1aNinH4sg-7gC4_HxhKRShRdiOWjUolkEww","user":{"email":"staff@gmail.com","id":"690b01db5751fab83b918e72","name":"Admin"}}
+[00:05:49.368] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848332070}
+[00:05:59.431] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases","o":"http://localhost:3000/staff/cases","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848342115}
+[00:06:01.064] Browser ERROR   uncaughtError: Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
+[00:07:28.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:28.305] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:07:28.305] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:07:28.305] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848431018}
+[00:07:29.483] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848432195}
+[00:07:31.370] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases","o":"http://localhost:3000/staff/cases","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762848434076}
+[00:07:32.775] Browser ERROR   uncaughtError: Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted

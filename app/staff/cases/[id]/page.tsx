@@ -3,6 +3,7 @@ import React from "react"
 import Link from "next/link"
 import { Heart, ChevronLeft, Download, X } from "lucide-react"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/router"
 
 interface CaseDetail {
   _id: string
@@ -164,6 +165,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const [grantedAmount, setGrantedAmount] = useState<number | "">("")
   const [remarks, setRemarks] = useState("")
   const [loadingGrant, setLoadingGrant] = useState(true)
+  const router = useRouter()
 
   // ✅ Fetch case detail
   useEffect(() => {
@@ -321,6 +323,41 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       }
 
       setUpdateError(null)
+    } catch (err) {
+      setUpdateError(err instanceof Error ? err.message : String(err))
+    } finally {
+      setIsUpdating(false)
+    }
+  }
+
+  const handleDeleteApplication = async () => {
+    if (!confirm("Are you sure you want to delete this application? This action cannot be undone.")) {
+      return
+    }
+
+    try {
+      setIsUpdating(true)
+      const token = localStorage.getItem("rahmah_admin_token")
+      if (!token) {
+        setUpdateError("Authentication token not found. Please log in again.")
+        return
+      }
+
+      const response = await fetch(`/api/zakat-applicants/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.message || `Delete failed: ${response.status}`)
+      }
+
+      // Redirect to cases page after successful deletion
+      router.push("/staff/cases")
     } catch (err) {
       setUpdateError(err instanceof Error ? err.message : String(err))
     } finally {
@@ -649,9 +686,18 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               <button
                 onClick={handleStatusUpdate}
                 disabled={isUpdating}
-                className="w-full bg-teal-600 text-white font-medium py-3 rounded-lg hover:bg-teal-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-teal-600 text-white font-medium py-3 rounded-lg hover:bg-teal-700 transition disabled:opacity-50 disabled:cursor-not-allowed mb-3"
               >
                 {isUpdating ? "Updating..." : "Update Status & Grant"}
+              </button>
+
+              {/* Added delete button in red to indicate destructive action */}
+              <button
+                onClick={handleDeleteApplication}
+                disabled={isUpdating}
+                className="w-full bg-red-600 text-white font-medium py-2 rounded-lg hover:bg-red-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Delete Application
               </button>
             </div>
 

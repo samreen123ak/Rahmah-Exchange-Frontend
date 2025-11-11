@@ -46,12 +46,12 @@ export default function Home() {
               <ArrowRight className="w-5 h-5" />
             </button>
           </Link>
-          {/* <Link href="/application-status">
+          <Link href="/application-status">
             <button className="px-8 py-4 border-2 border-gray-300 text-gray-900 rounded-lg font-semibold hover:border-gray-400 hover:bg-gray-50 transition inline-flex items-center gap-2 text-lg">
               Check Status
               <ArrowRight className="w-5 h-5" />
             </button>
-          </Link> */}
+          </Link>
         </div>
       </section>
 

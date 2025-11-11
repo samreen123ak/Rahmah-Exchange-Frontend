@@ -28,11 +28,23 @@ type StatusRowProps = {
   color: string
 }
 
+interface Notification {
+  _id: string
+  applicantId: string
+  type: string
+  title: string
+  grantedAmount: number
+  approvalDate: string
+  read: boolean
+  createdAt: string
+}
+
 export default function DashboardPage() {
   const [activeTab] = useState("overview")
   const [applicants, setApplicants] = useState<ZakatApplicant[]>([])
   const [totalFromAPI, setTotalFromAPI] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
+  const [notifications, setNotifications] = useState<Notification[]>([])
   const router = useRouter()
 
   useEffect(() => {
@@ -97,7 +109,20 @@ export default function DashboardPage() {
       }
     }
 
+    const fetchNotifications = async () => {
+      try {
+        const res = await authenticatedFetch(`/api/notifications?limit=5&sort=-createdAt`)
+        const json = await res.json()
+        const notifArray: any[] = Array.isArray(json) ? json : json.items || json.data || []
+        setNotifications(notifArray)
+      } catch (error) {
+        console.error("Error fetching notifications:", error)
+        setNotifications([])
+      }
+    }
+
     fetchApplicants()
+    fetchNotifications()
   }, [])
 
   const approvedCount = applicants.filter((app) => app.normalizedStatus === "approved").length
@@ -210,6 +235,30 @@ export default function DashboardPage() {
                         </p>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Added notifications panel */}
+                  <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">Recent Activity</h3>
+                    {notifications.length > 0 ? (
+                      <div className="space-y-3">
+                        {notifications.slice(0, 5).map((notif) => (
+                          <div key={notif._id} className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                            <p className="text-sm font-medium text-blue-900">{notif.title}</p>
+                            {notif.grantedAmount > 0 && (
+                              <p className="text-xs text-blue-800 mt-1">
+                                Amount: ${notif.grantedAmount.toLocaleString()}
+                              </p>
+                            )}
+                            <p className="text-xs text-blue-600 mt-1">
+                              {new Date(notif.createdAt).toLocaleDateString()}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm text-gray-600">No recent activity</p>
+                    )}
                   </div>
                 </div>
               </>
