@@ -381,8 +381,12 @@ export default function ApplyPage() {
   }
 
   const handleSubmit = async () => {
-    if (formData.documents.length === 0) {
+    console.log("[v0] handleSubmit called. Documents count:", formData.documents.length)
+
+    if (!formData.documents || formData.documents.length === 0) {
+      console.log("[v0] No documents found. Form data documents:", formData.documents)
       showToast("Please upload at least one document", "error")
+      setIsSubmitting(false)
       return
     }
 
@@ -422,27 +426,35 @@ export default function ApplyPage() {
       submitData.append("reference2", JSON.stringify(formData.reference2))
 
       console.log("[v0] Documents being submitted:", formData.documents.length)
-      formData.documents.forEach((file, index) => {
-        console.log(`[v0] Appending document ${index + 1}:`, file.name, file.size)
-        submitData.append(`documents`, file)
-      })
+
+      for (let i = 0; i < formData.documents.length; i++) {
+        const file = formData.documents[i]
+        if (file && file instanceof File) {
+          console.log(`[v0] Appending document ${i + 1}:`, file.name, file.size, file.type)
+          submitData.append("documents", file)
+        } else {
+          console.warn(`[v0] Skipping invalid document at index ${i}:`, file)
+        }
+      }
 
       const response = await axios.post(API_URL, submitData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
 
-      if (response) {
+      if (response.status === 201 || response.data.applicant) {
         console.log("[v0] Application submitted successfully:", response.data)
         showToast("Application submitted successfully!", "success")
         setIsSubmitted(true)
-        setIsSubmitting(false)
         return
       }
     } catch (error: any) {
       const errorMessage =
-        error.response?.data?.message || "Something went wrong submitting your application. Please try again."
-      console.error("[v0] Error submitting application:", error)
+        error.response?.data?.error ||
+        error.response?.data?.message ||
+        "Something went wrong submitting your application. Please try again."
+      console.error("[v0] Error submitting application:", error, errorMessage)
       showToast(errorMessage, "error")
+    } finally {
       setIsSubmitting(false)
     }
   }

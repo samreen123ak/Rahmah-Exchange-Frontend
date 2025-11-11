@@ -1,53 +1,21 @@
-[00:00:02.800] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:03.501] Server  LOG      ✓ Ready in 2.5s
-[00:00:07.489] Server  LOG      ○ Compiling /staff/cases/[id] ...
-[00:00:16.289] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:16.289] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff/cases/6912c99a113c1000aa4b909e","route":"/staff/cases/[id]"}
-[00:00:16.289] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases/[id]","o":"http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762840943156}
-[00:00:22.021] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:22.021] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff/cases/6912c99a113c1000aa4b909e","route":"/staff/cases/[id]"}
-[00:00:22.021] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases/[id]","o":"http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762840949644}
-[00:00:33.608] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="font-sans antialiased"
--                           data-new-gr-c-s-check-loaded="14.1261.0"
--                           data-gr-ext-installed=""
-                          >
-                  ...
-
-[00:00:35.081] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:35.081] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/staff/dashboard","route":"/staff/dashboard"}
-[00:00:35.081] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/staff/dashboard","o":"http://localhost:3000/staff/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762840963536}
-[00:00:38.920] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases","o":"http://localhost:3000/staff/cases","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762840967440}
-[00:00:41.323] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases/[id]","o":"http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762840969823}
-[00:00:47.963] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases","o":"http://localhost:3000/staff/cases","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762840976485}
-[00:00:56.658] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e color: rgb(120, 120, 120) color: inherit {"dp":"/staff/cases/[id]","o":"http://localhost:3000/staff/cases/6912c99a113c1000aa4b909e","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762840985085}
+[00:00:02.860] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:03.468] Server  LOG      ✓ Ready in 2.7s
+[00:00:06.573] Server  LOG      ○ Compiling /form ...
+[00:00:17.147] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:17.147] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/form","route":"/form"}
+[00:00:17.147] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/form color: rgb(120, 120, 120) color: inherit {"dp":"/form","o":"http://localhost:3000/form","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762842417422}
+[00:00:17.148] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:17.148] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:17.148] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762842416933}
+[00:00:23.960] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/form color: rgb(120, 120, 120) color: inherit {"dp":"/form","o":"http://localhost:3000/form","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1762842424350}
+[00:02:48.363] Server  LOG     [v0] POST received 1 "files"
+[00:02:48.372] Server  LOG     [v0] FormData keys: ["firstName","lastName","streetAddress","city","state","zipCode","gender","dateOfBirth","mobilePhone","homePhone","email","legalStatus","referredBy","referrerPhone","employmentStatus","dependentsInfo","totalMonthlyIncome","incomeSources","rentMortgage","utilities","food","otherExpenses","totalDebts","requestType","amountRequested","whyApplying","circumstances","previousZakat","reference1","reference2","documents"]
+[00:02:48.374] Server  LOG     [v0] Processing file - type: "object" "isFile:" true "name:" "Tiran Jackson Speaker Kit.pdf"
+[00:02:48.379] Server  LOG     [v0] File buffer created - size: 4311680 "name:" "Tiran Jackson Speaker Kit.pdf"
+[00:02:48.380] Server  ERROR   [v0] BLOB_READ_WRITE_TOKEN not set!
+[00:02:48.723] Server  ERROR   [v0] Blob upload error: Error: Blob storage not configured
+[00:02:48.846] Server  ERROR   [v0] POST error: Error: Blob storage not configured
+[00:02:48.881] Browser LOG     [v0] handleSubmit called. Documents count: 1
+[00:02:48.881] Browser LOG     [v0] Documents being submitted: 1
+[00:02:48.881] Browser LOG     [v0] Appending document 1: Tiran Jackson Speaker Kit.pdf 4311680 application/pdf
+[00:02:48.961] Browser ERROR   [v0] Error submitting application: {"code":"ERR_BAD_RESPONSE","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"data":{},"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"multipart/form-data"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/api/zakat-applicants","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 500","name":"AxiosError","stack":"AxiosError: Request failed with status code 500\n    at settle (http://localhost:3000/_next/static/chunks/node_modules__pnpm_af3eb00c._.js:3706:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules__pnpm_af3eb00c._.js:4221:225)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules__pnpm_af3eb00c._.js:5025:49)\n    at async handleSubmit (http://localhost:3000/_next/static/chunks/_a7eff992._.js:935:30)","status":500} Blob storage not configured

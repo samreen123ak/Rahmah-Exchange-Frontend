@@ -1,9 +1,5 @@
 {
-  "/api/grants/route": "app/api/grants/route.js",
-  "/api/zakat-applicants/[id]/route": "app/api/zakat-applicants/[id]/route.js",
   "/api/zakat-applicants/route": "app/api/zakat-applicants/route.js",
-  "/page": "app/page.js",
-  "/staff/cases/[id]/page": "app/staff/cases/[id]/page.js",
-  "/staff/cases/page": "app/staff/cases/page.js",
-  "/staff/dashboard/page": "app/staff/dashboard/page.js"
+  "/form/page": "app/form/page.js",
+  "/page": "app/page.js"
 }
