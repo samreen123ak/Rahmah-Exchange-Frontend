@@ -16,7 +16,7 @@ import { getAuthToken, removeAuthToken, authenticatedFetch } from "@/lib/auth-ut
 // }
 
 interface Case {
-  caseId: string
+  _Id: string
   firstName: string
   lastName: string
   requestType: string
@@ -125,7 +125,7 @@ export default function CasesPage() {
         <div className="space-y-4">
           {cases.map((caseItem) => (
             <div
-              key={caseItem.caseId}
+              key={caseItem._Id}
               className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md border border-gray-200 transition"
             >
               <div className="flex items-start justify-between mb-4">
@@ -153,7 +153,7 @@ export default function CasesPage() {
               <div className="grid grid-cols-4 gap-6 text-sm pt-4 border-t border-gray-100">
                 <div>
                   <p className="text-gray-600">Case ID</p>
-                  <p className="font-mono text-xs text-gray-900 mt-1">{caseItem.caseId.slice(0, 8)}...</p>
+                  <p className="font-mono text-xs text-gray-900 mt-1">{caseItem._Id.slice(0, 8)}...</p>
                 </div>
                 <div>
                   <p className="text-gray-600">Submitted</p>
@@ -168,7 +168,7 @@ export default function CasesPage() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <Link href={`/staff/cases/${caseItem.caseId}`}>
+                  <Link href={`/staff/cases/${caseItem._Id}`}>
                     <button className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition font-medium">
                       Review
                     </button>
