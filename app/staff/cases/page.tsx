@@ -101,14 +101,16 @@ export default function CasesPage() {
         </Link>
           <div className="flex items-center gap-4">
             <Link href="/staff/dashboard" className="text-gray-600 hover:text-gray-900 font-medium transition">
+              <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-gray-100 hover:bg-red-50 hover:text-red-600 rounded-lg transition">
               Dashboard
+              </button>
             </Link>
-            <button
+            {/* <button
               onClick={handleLogout}
               className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-gray-100 hover:bg-red-50 hover:text-red-600 rounded-lg transition"
             >
               <LogOut className="w-4 h-4" />
-            </button>
+            </button> */}
           </div>
         </div>
       </header>

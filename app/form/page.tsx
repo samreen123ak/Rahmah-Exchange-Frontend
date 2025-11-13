@@ -4,7 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { ChevronLeft, Upload, CheckCircle2, AlertCircle, CheckCircle } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image";
+import Image from "next/image"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import ApplicationStatus from "@/components/application-status"
 
@@ -95,6 +95,7 @@ export default function ApplyPage() {
     whyApplying: "",
     circumstances: "",
     previousZakat: "",
+    zakatResourceSource: "", // Added new field
     // Step 6: References
     reference1: { fullName: "", phoneNumber: "", email: "", relationship: "" },
     reference2: { fullName: "", phoneNumber: "", email: "", relationship: "" },
@@ -254,6 +255,9 @@ export default function ApplyPage() {
     }
     if (!formData.previousZakat) {
       newErrors.previousZakat = "Please select an option"
+    }
+    if (formData.previousZakat === "yes" && !formData.zakatResourceSource.trim()) {
+      newErrors.zakatResourceSource = "Please specify where you received the Zakat"
     }
 
     setErrors(newErrors)
@@ -422,6 +426,7 @@ export default function ApplyPage() {
       submitData.append("whyApplying", formData.whyApplying)
       submitData.append("circumstances", formData.circumstances)
       submitData.append("previousZakat", formData.previousZakat)
+      submitData.append("zakatResourceSource", formData.zakatResourceSource)
       submitData.append("reference1", JSON.stringify(formData.reference1))
       submitData.append("reference2", JSON.stringify(formData.reference2))
 
@@ -436,6 +441,7 @@ export default function ApplyPage() {
           console.warn(`Skipping invalid document at index ${i}:`, file)
         }
       }
+      console.log("Submitting zakatResourceSource:", formData);
 
       const response = await axios.post(API_URL, submitData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -489,13 +495,7 @@ export default function ApplyPage() {
       <header className="flex items-center justify-between px-8 py-6 border-b border-gray-200 bg-white">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo1.svg"
-              alt="Rahmah Exchange Logo"
-              width={170}
-              height={170}
-              priority
-            />
+            <Image src="/logo1.svg" alt="Rahmah Exchange Logo" width={170} height={170} priority />
           </Link>
         </div>
         <button className="px-6 py-2 text-gray-900 font-medium hover:bg-gray-100 rounded-lg transition">
@@ -1196,6 +1196,30 @@ export default function ApplyPage() {
                   </p>
                 )}
               </div>
+
+              {/* Add conditional textarea for zakat resource source when "yes" is selected */}
+              {formData.previousZakat === "yes" && (
+                <div className="mt-6">
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Where did you receive the Zakat? <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="zakatResourceSource"
+                    value={formData.zakatResourceSource}
+                    onChange={handleChange}
+                    placeholder="Please specify the organization, individual, or source from which you received Zakat assistance..."
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600 min-h-32 ${
+                      errors.zakatResourceSource ? "border-red-500 bg-red-50" : "border-gray-300"
+                    }`}
+                  />
+                  {errors.zakatResourceSource && (
+                    <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
+                      <AlertCircle className="w-4 h-4" />
+                      {errors.zakatResourceSource}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
@@ -1471,6 +1495,10 @@ export default function ApplyPage() {
                     <p>Type: {formData.requestType}</p>
                     <p>Amount Requested: ${formData.amountRequested || "0"}</p>
                     <p>Reason: {formData.whyApplying.substring(0, 100) || "..."}</p>
+                    {/* Displaying the new field */}
+                    {formData.previousZakat === "yes" && formData.zakatResourceSource && (
+                      <p>Previous Zakat Resource: {formData.zakatResourceSource}</p>
+                    )}
                   </div>
                 </div>
 

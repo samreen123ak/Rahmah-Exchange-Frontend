@@ -30,6 +30,7 @@ const zakatApplicantSchema = new mongoose.Schema(
     whyApplying: String,
     circumstances: String,
     previousZakat: String,
+    zakatResourceSource: String,
     reference1: {
       fullName: String,
       phoneNumber: String,
@@ -55,7 +56,7 @@ const zakatApplicantSchema = new mongoose.Schema(
     status: { type: String, default: "Pending", enum: ["Pending", "Approved", "Rejected"] },
     caseId: { type: String, unique: true, index: true },
   },
-  { timestamps: true },
+  { timestamps: true }
 )
 
 export default mongoose.models.ZakatApplicant || mongoose.model("ZakatApplicant", zakatApplicantSchema)

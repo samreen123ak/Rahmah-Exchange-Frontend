@@ -2,7 +2,7 @@
 import React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Heart, ChevronLeft, Download, X } from "lucide-react"
+import { ChevronLeft, Download, X } from "lucide-react"
 import { useState, useEffect } from "react"
 
 interface CaseDetail {
@@ -36,6 +36,7 @@ interface CaseDetail {
   whyApplying: string
   circumstances: string
   previousZakat: string
+  zakatResourceSource?: string
   reference1: {
     fullName: string
     phoneNumber: string
@@ -347,14 +348,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       <header className="bg-white border-b border-gray-200 px-8 py-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/staff/dashboard" className="flex items-center gap-3">
-          <Image
-            src="/logo1.svg"
-            alt="Rahmah Exchange Logo"
-            width={140}
-            height={140}
-            priority
-          />
-        </Link>
+            <Image src="/logo1.svg" alt="Rahmah Exchange Logo" width={140} height={140} priority />
+          </Link>
           <Link href="/staff/cases" className="text-gray-600 hover:text-gray-900 text-sm flex items-center gap-1">
             <ChevronLeft className="w-4 h-4" />
             Back to Cases
@@ -527,6 +522,14 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                 <p className="text-sm text-gray-600">Previous Zakat</p>
                 <p className="text-gray-900 font-medium">{caseData.previousZakat}</p>
               </div>
+
+              {/* Display zakat resource source if applicant selected "yes" and provided source */}
+              {caseData.previousZakat === "yes" && caseData.zakatResourceSource && (
+                <div className="mt-6">
+                  <p className="text-sm text-gray-600">Zakat Resource Source</p>
+                  <p className="text-gray-900 font-medium">{caseData.zakatResourceSource}</p>
+                </div>
+              )}
             </div>
 
             {/* References Section */}

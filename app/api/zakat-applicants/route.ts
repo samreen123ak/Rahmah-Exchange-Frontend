@@ -23,11 +23,11 @@ async function generateUniqueCaseId(): Promise<string> {
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
-    const q = searchParams.get("q");
-    const status = searchParams.get("status");
-    const email = searchParams.get("email"); 
-    const page = Number(searchParams.get("page")) || 1;
-    const limit = Number(searchParams.get("limit")) || 25;
+    const q = searchParams.get("q")
+    const status = searchParams.get("status")
+    const email = searchParams.get("email")
+    const page = Number(searchParams.get("page")) || 1
+    const limit = Number(searchParams.get("limit")) || 25
 
     await dbConnect()
 
@@ -114,6 +114,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email already exists" }, { status: 409 })
     }
 
+    // Normalize zakatResourceSource to a string if provided (avoid saving File/null)
+    const zakatResourceSourceValue = formData.get("zakatResourceSource")
+      ? formData.get("zakatResourceSource")!.toString()
+      : undefined
+
     const applicantData: any = {
       firstName: formData.get("firstName"),
       lastName: formData.get("lastName"),
@@ -143,9 +148,10 @@ export async function POST(request: NextRequest) {
       whyApplying: formData.get("whyApplying"),
       circumstances: formData.get("circumstances"),
       previousZakat: formData.get("previousZakat"),
+      zakatResourceSource: zakatResourceSourceValue,
       reference1,
       reference2,
-      documents: documentMetadata, // Explicitly set documents array
+      documents: documentMetadata,
       caseId: await generateUniqueCaseId(),
     }
 
@@ -153,6 +159,7 @@ export async function POST(request: NextRequest) {
     await applicant.save()
 
     console.log(" Applicant saved with", applicant.documents.length, "documents")
+    console.log("Saved zakatResourceSource:", applicant.zakatResourceSource)
 
     // Fire-and-forget emails (do not block success)
     ;(async () => {
